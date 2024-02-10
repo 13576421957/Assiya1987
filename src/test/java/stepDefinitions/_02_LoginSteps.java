@@ -14,7 +14,7 @@ public class _02_LoginSteps {
 
     @Given("I am on the homepage of the website")
     public void i_am_on_the_homepage_of_the_website() {
-        // Set up WebDriver and open the homepage of the website
+
         System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
         driver = new ChromeDriver();
         driver.get("https://demo.nopcommerce.com/");
@@ -22,14 +22,14 @@ public class _02_LoginSteps {
 
     @When("I click the {string} button")
     public void i_click_the_button(String buttonName) {
-        // Click the specified button
+
         WebElement button = driver.findElement(By.xpath("//a[text()='" + buttonName + "']"));
         button.click();
     }
 
     @When("I enter valid email and password")
     public void i_enter_valid_email_and_password() {
-        // Enter valid email and password
+
         WebElement emailInput = driver.findElement(By.id("Email"));
         emailInput.sendKeys("valid@email.com");
 
@@ -49,7 +49,7 @@ public class _02_LoginSteps {
 
     @Then("I should be successfully logged in")
     public void i_should_be_successfully_logged_in() {
-        // Verify successful login
+
         WebElement logoutButton = driver.findElement(By.xpath("//a[@class='ico-logout']"));
         Assert.assertTrue(logoutButton.isDisplayed());
 
@@ -59,11 +59,11 @@ public class _02_LoginSteps {
 
     @Then("I should see an error message")
     public void i_should_see_an_error_message() {
-        // Verify error message is displayed
+        /
         WebElement errorMessage = driver.findElement(By.xpath("//div[@class='message-error']"));
         Assert.assertTrue(errorMessage.isDisplayed());
 
-        // Close the browser
+
         driver.quit();
     }
 }
